@@ -23,6 +23,7 @@ class CustomexpSpiderSpider(scrapy.Spider):
     }
 
     def parse(self, response):
+        self.logger.info("Scrapingpage: %s",response.url)
         quotes = response.css("div.quote")
         for quote in quotes:
             yield {
